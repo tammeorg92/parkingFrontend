@@ -1,0 +1,76 @@
+.sidenav { 
+  width: 100%;
+  height: 100%;
+}
+.sidenav-filters { 
+  border-right: 2px solid #546F8A;
+}
+
+.invoice-btn { 
+    margin: 10px;
+}
+
+
+.header-username {
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: auto;
+    min-width: 150px;
+    margin-right: 20px;
+  }
+
+  .header-username i {
+    margin: 0 5px;
+    font-size: 18pt;
+  }
+
+  .header-title {
+    float: left;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 0 15px 0 30px;
+    font-size: 15pt;
+  }
+  .header-search {
+    display: none;
+  }
+
+  .header-log-out {
+    float: right;
+    width: auto;
+    min-width: 150px;
+    background-color: #E23237;
+    color: white;
+    text-align: center;
+    color: white;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+  }
+  .header-log-out:hover {
+    text-decoration: underline;
+  }
+  
+
+  .choose-user {
+    margin-right:20px;
+  }
+  
+
+  table {
+    width: 100%;
+  }
+
+  
+
+.info {
+  text-align:left;
+  display: inline-block;
+  margin-left:30px;
+}

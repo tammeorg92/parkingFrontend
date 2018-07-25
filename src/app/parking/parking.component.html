@@ -1,0 +1,114 @@
+<div class="header-title">
+
+    User parking</div>
+<!-- TODO: render additional menus based on the main menu selection -->
+<div class="header-search">
+    <input type="text" />
+</div>
+
+<div class="header-log-out">Log Out</div>
+
+
+<div class="header-username">
+    <div class="choose-user">
+        <strong>Choose user: </strong>
+        <mat-form-field>
+            <mat-select [(value)]="selected" (selectionChange)="userChanged($event.value)">
+                <mat-option *ngFor="let user of users" [value]="user.name">
+                    {{user.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+    <div>
+        <strong>User: </strong> {{selected}} ({{selectedGroup}})</div>
+</div>
+
+
+
+
+<mat-sidenav-container class="sidenav" autosize>
+
+    <button (click)="openInvoice()" mat-raised-button class="invoice-btn" color="primary">
+        Create invoice
+    </button>    
+
+    <p class="info">Month: May</p>
+    <p class="info">Day fee: {{service.dayFee}} € </p>
+    <p class="info">Night fee: {{service.nightFee}} € </p>
+   
+    <p *ngIf="selectedGroup === 'premium'" class="info">Type:Premium  </p>
+    <p *ngIf="selectedGroup === 'regular'" class="info">Type:Regular  </p>
+
+
+    <p *ngIf="service.maxInvoice > 0" class="info">
+        Maximum invoice:{{service.maxInvoice}} € 
+    </p>
+    <p *ngIf="service.monthlyFee > 0" class="info">
+        Monthly fee: {{service.monthlyFee}} € 
+    </p>
+
+    <div class="container mat-elevation-z3">
+
+        <table mat-table [dataSource]="tableData" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="startTime">
+                <th mat-header-cell *matHeaderCellDef> Start time. </th>
+                <td mat-cell *matCellDef="let data"> {{data.dates[0]}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="dayFee">
+                <th mat-header-cell *matHeaderCellDef> Day fee</th>
+                <td mat-cell *matCellDef="let data">
+
+                    <p *ngIf="data.totalHours.dayHours !== 0">
+                        {{data.totalHours.dayHours}} * {{data.fee.dayFee}} = {{data.totalHours.dayHours * data.fee.dayFee}} 
+                    </p>
+                    <p *ngIf="data.totalHours.dayHours === 0">
+                        N/A
+                    </p>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nightFee">
+                <th mat-header-cell *matHeaderCellDef> Night fee </th>
+                <td mat-cell *matCellDef="let data">
+                    <p *ngIf="data.totalHours.nightHours !== 0">
+                        {{data.totalHours.nightHours}} * {{data.fee.nightFee}} = {{data.totalHours.nightHours * data.fee.nightFee }}
+                    </p>
+                    <p *ngIf="data.totalHours.nightHours === 0">
+                        None
+                    </p>
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="endTime">
+                <th mat-header-cell *matHeaderCellDef> End time </th>
+                <td mat-cell *matCellDef="let data"> {{data.dates[1]}}</td>
+            </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="total">
+                <th mat-header-cell *matHeaderCellDef> Total </th>
+                <td mat-cell *matCellDef="let data"> {{data.sum}} € </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+
+
+        <!-- Copyright 2018 Google Inc. All Rights Reserved.
+                  Use of this source code is governed by an MIT-style license that
+                  can be found in the LICENSE file at http://angular.io/license -->
+
+
+    </div>
+
+</mat-sidenav-container>

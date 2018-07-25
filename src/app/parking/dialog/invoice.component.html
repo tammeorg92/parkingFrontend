@@ -1,0 +1,42 @@
+<h4 mat-dialog-title> Invoice May</h4>
+
+
+
+<mat-dialog-content>
+
+    <div class="container">
+
+
+        <mat-list>
+            <mat-list-item>
+                <p class="info">Month: May</p>
+                <p *ngIf="maxInvoice > 0" class="info">
+                        Maximum invoice:{{maxInvoice}} €
+                    </p>
+                    <p *ngIf="monthlyFee > 0" class="info">
+                        Monthly fee: {{monthlyFee}} €
+                    </p>
+
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item *ngFor="let time of parkingTimes">
+                <P class="column">{{time.dates[0]}} </P>
+                <P class="column">{{time.dates[1]}} </P>
+                <p class="column">{{time.sum}} €</p>
+            </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+
+            <p class="totalSum">Total: {{total}} €</p>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button mat-raised-button (click)="onClose()" color="primary">
+        Close
+    </button>
+
+
+</mat-dialog-actions>

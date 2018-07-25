@@ -1,0 +1,32 @@
+.footer-main {
+    height: 100%;
+    align-self: flex-end;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:space-between;
+    align-items:flex-start;
+    font-size: 10pt;
+    background-color: #546F8A;
+    color: white;
+    text-shadow: 1px 1px #000000;
+  }
+  .footer-main div {
+    padding: 5px 15px 0 15px;
+  }
+
+
+  .main {
+    height:550px;
+}
+
+  .wrapper {
+    height: 100vh;
+    display: flex;
+
+    /* Direction of the items, can be row or column */
+    flex-direction: column;
+}
+
+
