@@ -9,7 +9,8 @@ To start production server:
    * cd production
    * npm install
    * node app.js 
-To view app, go to http://localhost:4200/
+   
+* To view app, go to http://localhost:4200/
 
 ## Supported browser
  * Tested on latest Chrome / Firefox 
