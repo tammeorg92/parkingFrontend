@@ -81,6 +81,10 @@ export class ParkingComponent implements OnInit {
 
   }
 
+  get dayFee() { return this.service.dayFee};
+  get nightFee() { return this.service.nightFee;}
+  get maxInvoice() { return this.service.maxInvoice;}
+  get monthlyFee() { return this.service.monthlyFee;}
 
 }
 

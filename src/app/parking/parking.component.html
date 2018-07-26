@@ -36,18 +36,18 @@
     </button>    
 
     <p class="info">Month: May</p>
-    <p class="info">Day fee: {{service.dayFee}} € </p>
-    <p class="info">Night fee: {{service.nightFee}} € </p>
+    <p class="info">Day fee: {{dayFee}} € </p>
+    <p class="info">Night fee: {{nightFee}} € </p>
    
     <p *ngIf="selectedGroup === 'premium'" class="info">Type:Premium  </p>
     <p *ngIf="selectedGroup === 'regular'" class="info">Type:Regular  </p>
 
 
-    <p *ngIf="service.maxInvoice > 0" class="info">
-        Maximum invoice:{{service.maxInvoice}} € 
+    <p *ngIf="maxInvoice > 0" class="info">
+        Maximum invoice:{{maxInvoice}} € 
     </p>
-    <p *ngIf="service.monthlyFee > 0" class="info">
-        Monthly fee: {{service.monthlyFee}} € 
+    <p *ngIf="monthlyFee > 0" class="info">
+        Monthly fee: {{monthlyFee}} € 
     </p>
 
     <div class="container mat-elevation-z3">
@@ -102,11 +102,6 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
 
-
-
-        <!-- Copyright 2018 Google Inc. All Rights Reserved.
-                  Use of this source code is governed by an MIT-style license that
-                  can be found in the LICENSE file at http://angular.io/license -->
 
 
     </div>
